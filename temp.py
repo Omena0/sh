@@ -1,11 +1,8 @@
 import subprocess as sp
 
-cmd = []
-p = sp.Popen(args=cmd,shell=True,stdin=sp.PIPE,stdout=sp.PIPE)
 
-p.stdin.write('echo test123')
-p.wait()
-out = p.stdout.read()
-
+out = sp.check_output('$a = "e";exit 0',shell=True,stderr=sp.STDOUT)
+print(out)
+out = sp.check_output('$a;exit 0',shell=True)
 print(out)
 
